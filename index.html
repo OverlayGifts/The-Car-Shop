@@ -22,7 +22,7 @@
              device-orientation-permission-ui="enabled: false">
       
       <a-assets>
-        <!-- Load video file for the single image target -->
+        <!-- Load video file for a single image target -->
         <video id="video1" src="vid2.mp4" crossorigin="anonymous" playsinline loop></video>
       </a-assets>
 
@@ -30,7 +30,7 @@
 
       <!-- Single Image Target -->
       <a-entity mindar-image-target="targetIndex: 0" id="target1">
-        <a-video src="#video1" position="0 0 0" rotation="0 0 0" scale="1 1 1" width="1" height="0.70"></a-video>
+        <a-video src="#video1" position="0 0 0" rotation="0 0 0" scale="1 .80 1" width="1" height="0.80"></a-video>
       </a-entity>
       
     </a-scene>
@@ -41,7 +41,6 @@
     <script>
       const video1 = document.querySelector('#video1');
       const playButton = document.querySelector('#playButton');
-
       let isPlaying = false;
       let currentVideo = null;
 
@@ -51,14 +50,7 @@
         const target1Active = target1.components['mindar-image-target'].el.object3D.visible;
 
         if (target1Active) {
-          if (currentVideo !== video1) {
-            if (currentVideo) currentVideo.pause(); // Pause the previous video
-            currentVideo = video1;
-            currentVideo.play(); // Play the new video
-            currentVideo.muted = false;
-            playButton.innerText = "Pause Video";
-            isPlaying = true;
-          }
+          switchVideo(video1);
         } else {
           if (currentVideo) {
             currentVideo.pause();
@@ -66,6 +58,18 @@
             isPlaying = false;
             currentVideo = null; // Reset currentVideo
           }
+        }
+      };
+
+      // Helper function to switch videos
+      const switchVideo = (newVideo) => {
+        if (currentVideo !== newVideo) {
+          if (currentVideo) currentVideo.pause(); // Pause the previous video
+          currentVideo = newVideo;
+          currentVideo.play(); // Play the new video
+          currentVideo.muted = false;
+          playButton.innerText = "Pause Video";
+          isPlaying = true;
         }
       };
 
