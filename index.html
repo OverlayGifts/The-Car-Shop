@@ -12,6 +12,19 @@
       .a-enter-vr-button {
         display: none !important;
       }
+      /* Style for the website button */
+      #websiteButton {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
     </style>
   </head>
   <body>
@@ -37,6 +50,9 @@
 
     <!-- Play/Pause Button (Hidden) -->
     <button id="playButton">Play Video</button>
+
+    <!-- Website Button on Bottom Left -->
+    <button id="websiteButton" onclick="window.location.href='https:the-car-shop.odoo.com/';">Visit Website</button>
 
     <script>
       const video1 = document.querySelector('#video1');
