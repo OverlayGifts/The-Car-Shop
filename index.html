@@ -12,18 +12,20 @@
       .a-enter-vr-button {
         display: none !important;
       }
-      /* Style for the website button */
-      #websiteButton {
+
+      /* Style for the Google button */
+      #googleButton {
         position: fixed;
         bottom: 10px;
         left: 10px;
         padding: 10px 20px;
-        background-color: #007BFF;
+        background-color: #4285F4;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
+        text-decoration: none;
       }
     </style>
   </head>
@@ -43,20 +45,21 @@
 
       <!-- Single Image Target -->
       <a-entity mindar-image-target="targetIndex: 0" id="target1">
-        <a-video src="#video1" position="0 0 0" rotation="0 0 0" scale="1 .80 1" width="1" height="0.80"></a-video>
+        <a-video src="#video1" position="0 0 0" rotation="0 0 0" scale="1 .80 1" width="1" height="0.81"></a-video>
       </a-entity>
       
     </a-scene>
 
-    <!-- Play/Pause Button (Hidden) -->
-    <button id="playButton">Play Video</button>
+    <!-- Google Button (Styled as link) -->
+    <a id="googleButton" href="https://www.google.com" target="_blank">Visit Google</a>
+     <!-- Custom Transparent Button -->
+     <button id="customButton" onclick="window.location.href='https://www.overlay-ai.com';">WEBSITE</button>
 
-    <!-- Website Button on Bottom Left -->
-    <button id="websiteButton" onclick="window.location.href='https://the-car-shop.odoo.com/';">Visit Website</button>
 
     <script>
       const video1 = document.querySelector('#video1');
       const playButton = document.querySelector('#playButton');
+
       let isPlaying = false;
       let currentVideo = null;
 
